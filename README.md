@@ -348,6 +348,23 @@
         .whatsapp-info a:hover {
             text-decoration: underline;
         }
+        
+        .device-warning {
+            display: none;
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+            text-align: left;
+        }
+        
+        .warning-icon {
+            font-size: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
 
         @media (max-width: 480px) {
             .container {
@@ -433,6 +450,11 @@
                 💬 立即咨询详情
             </button>
         </div>
+        
+        <div class="device-warning" id="deviceWarning">
+            <span class="warning-icon">⚠️</span>
+            检测到您的设备可能存在兼容性问题，建议使用手机或平板设备访问以获得最佳体验。
+        </div>
 
         <div class="salary-highlight">
             <div class="salary-amount">RM 6,500</div>
@@ -508,6 +530,7 @@
         // 配置 - 使用完整的WhatsApp链接
         const WHATSAPP_LINK = 'https://wa.link/quanmazhaogong';
         const PHONE_NUMBER = '+60192923682';
+        const WHATSAPP_PROTOCOL_LINK = `whatsapp://send?phone=${PHONE_NUMBER}`;
         
         // 唯一追踪函数 - 只追踪咨询点击
         function trackConsultationClick(buttonSource) {
@@ -557,6 +580,28 @@
             fallbackContainer.style.display = 'block';
         }
         
+        // 检测设备类型和浏览器兼容性
+        function detectDeviceIssues() {
+            const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            const isDesktop = !isMobile;
+            
+            const warningElement = document.getElementById('deviceWarning');
+            
+            // 在桌面设备或Safari浏览器上显示警告
+            if (isDesktop || (isIOS && isSafari)) {
+                warningElement.style.display = 'block';
+            }
+            
+            return {
+                isMobile,
+                isIOS,
+                isSafari,
+                isDesktop
+            };
+        }
+        
         // WhatsApp联系函数 - 已优化
         function contactWhatsApp(event) {
             const button = event.target;
@@ -579,22 +624,35 @@
             // 显示加载状态
             showStatus('正在连接招聘顾问...', 'success');
             
+            // 检测设备信息
+            const deviceInfo = detectDeviceIssues();
+            
             setTimeout(() => {
                 try {
-                    // 改进的设备检测
-                    const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                    
-                    // 移动设备使用WhatsApp协议链接
-                    if (isMobile) {
-                        // 创建隐藏链接并点击
-                        const hiddenLink = document.createElement('a');
-                        hiddenLink.href = `whatsapp://send?phone=${PHONE_NUMBER}`;
-                        hiddenLink.style.display = 'none';
-                        document.body.appendChild(hiddenLink);
-                        hiddenLink.click();
-                        document.body.removeChild(hiddenLink);
+                    // 改进的跳转逻辑
+                    if (deviceInfo.isMobile) {
+                        // 移动设备：尝试使用协议链接
+                        console.log('📱 移动设备 - 尝试使用协议链接');
+                        
+                        // 创建隐藏iframe来尝试协议链接
+                        const iframe = document.createElement('iframe');
+                        iframe.style.display = 'none';
+                        iframe.src = WHATSAPP_PROTOCOL_LINK;
+                        document.body.appendChild(iframe);
+                        
+                        // 设置超时回退
+                        setTimeout(() => {
+                            if (document.hasFocus()) {
+                                console.log('🔄 协议链接未生效，回退到网页版');
+                                window.open(WHATSAPP_LINK, '_blank');
+                            }
+                        }, 500);
+                        
+                        // 移除iframe
+                        setTimeout(() => document.body.removeChild(iframe), 2000);
                     } else {
-                        // 桌面设备使用网页版链接
+                        // 桌面设备：直接打开网页版
+                        console.log('💻 桌面设备 - 打开网页版');
                         window.open(WHATSAPP_LINK, '_blank');
                     }
                     
@@ -605,7 +663,7 @@
                     }, 3000);
                     
                 } catch (error) {
-                    console.log('跳转失败:', error);
+                    console.log('❌ 跳转失败:', error);
                     showFallbackOption();
                     
                     // 恢复按钮状态
@@ -619,12 +677,19 @@
         window.addEventListener('load', function() {
             console.log('📱 招聘页面加载完成');
             
+            // 检测设备问题
+            detectDeviceIssues();
+            
             document.querySelectorAll('.whatsapp-btn').forEach(button => {
                 button.addEventListener('click', contactWhatsApp);
             });
             
             // 设置直接WhatsApp链接
             document.getElementById('direct-whatsapp-link').href = WHATSAPP_LINK;
+            
+            // 设置备用链接
+            document.getElementById('whatsappFallbackLink').href = WHATSAPP_LINK;
+            document.getElementById('whatsappFallbackLink').textContent = WHATSAPP_LINK;
             
             setTimeout(() => {
                 if (typeof fbq !== 'undefined') {
