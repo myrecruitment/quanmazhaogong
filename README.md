@@ -353,27 +353,6 @@
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        .whatsapp-info {
-            background: #f0fff4;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border: 1px dashed #48bb78;
-            font-size: 14px;
-            text-align: center;
-            animation: fadeIn 0.8s 0.9s both;
-        }
-
-        .whatsapp-info a {
-            color: #38a169;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .whatsapp-info a:hover {
-            text-decoration: underline;
-        }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -523,11 +502,6 @@
         <div class="fallback-container" id="fallbackContainer">
             <p>您的浏览器阻止了自动跳转，请手动点击下方链接：</p>
             <a href="#" class="fallback-link" id="whatsappFallbackLink" target="_blank"></a>
-        </div>
-
-        <div class="whatsapp-info">
-            <p>WhatsApp咨询: <a href="https://wa.link/quanmazhaogong" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
-            <p>或添加号码: <strong>+60192923682</strong></p>
         </div>
 
         <div class="footer">
@@ -688,9 +662,6 @@
             document.querySelectorAll('.whatsapp-btn').forEach(button => {
                 button.addEventListener('click', contactWhatsApp);
             });
-            
-            // 设置直接WhatsApp链接
-            document.getElementById('direct-whatsapp-link').href = WHATSAPP_LINK;
             
             // 设置备用链接
             document.getElementById('whatsappFallbackLink').href = WHATSAPP_LINK;
