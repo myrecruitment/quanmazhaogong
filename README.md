@@ -474,7 +474,7 @@
         </div>
 
         <div class="whatsapp-info">
-            <p>WhatsApp咨询: <a href="https://[wa.me/60192923682?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%E5%B7%A5%E4%BD%9C](https://wa.me/60192923682?text=你好，我想咨询工作)" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
+            <p>WhatsApp咨询: <a href="https://wa.me/60192923682?text=你好，我想咨询工作" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
             <p>或添加号码: <strong>+60 19-292 3682</strong></p>
         </div>
 
