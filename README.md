@@ -474,8 +474,8 @@
         </div>
 
         <div class="whatsapp-info">
-            <p>WhatsApp咨询: <a href="https://wa.link/quanmazhaogong" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
-            <p>或添加号码: <strong>+60 19-292 3682</strong></p>
+            <p>WhatsApp咨询: <a href="wa.link/quanmazhaogong" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
+            <p>或添加号码: <strong>+60192923682</strong></p>
         </div>
 
         <div class="footer">
@@ -507,7 +507,7 @@
     <script>
         // 配置 - 使用完整的WhatsApp链接
         const WHATSAPP_LINK = 'wa.link/quanmazhaogong';
-        const PHONE_NUMBER = '+60 19-292 3682';
+        const PHONE_NUMBER = '+60192923682';
         
         // 唯一追踪函数 - 只追踪咨询点击
         function trackConsultationClick(buttonSource) {
