@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>居家助理招聘</title>
+    <title>居家行政助理招聘 | 兼职全职均可</title>
+    <meta name="description" content="Marriott Bonvoy Hotels招聘居家行政助理，月薪RM5000-8000+，弹性工作时间，无需经验，免费培训">
     <style>
         * {
             margin: 0;
@@ -13,115 +14,213 @@
 
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-            background: #f8fafc;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
             line-height: 1.6;
         }
 
         .container {
             background: white;
-            padding: 60px 50px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             text-align: center;
-            max-width: 480px;
+            max-width: 520px;
             width: 100%;
-            border: 1px solid #e5e7eb;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        .logo {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 32px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .company-info {
+            margin-bottom: 25px;
+        }
+
+        .company-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .company-name {
+            color: #2d3748;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         h1 {
-            color: #1f2937;
-            margin-bottom: 16px;
-            font-size: 32px;
+            color: #1a202c;
+            margin-bottom: 12px;
+            font-size: 28px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            color: #6b7280;
-            margin-bottom: 48px;
+        .job-title {
+            color: #667eea;
             font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 16px;
             font-weight: 400;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .features {
-            margin-bottom: 48px;
-            text-align: left;
+        .job-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
         }
 
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 24px;
-            padding: 20px;
-            background: #f9fafb;
+        .highlight-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 20px 15px;
             border-radius: 12px;
-            border: 1px solid #f3f4f6;
-            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
 
-        .feature:hover {
-            background: #f0fdf4;
-            border-color: #d1fae5;
+        .highlight-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
         }
 
-        .feature-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 16px;
-            color: #10b981;
+        .highlight-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .highlight-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .highlight-desc {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 4px;
+        }
+
+        .salary-highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .salary-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .salary-amount {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .salary-desc {
             font-size: 16px;
-            margin-top: 2px;
+            opacity: 0.9;
         }
 
-        .feature-text {
-            color: #374151;
-            font-size: 16px;
-            font-weight: 500;
+        .cta-section {
+            margin-bottom: 25px;
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #48bb78, #38a169);
             color: white;
             border: none;
-            padding: 16px 32px;
+            padding: 18px 40px;
             font-size: 18px;
-            font-weight: 600;
-            border-radius: 12px;
+            font-weight: 700;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+            max-width: 300px;
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(72, 187, 120, 0.4);
         }
 
         .cta-button:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
         .cta-button:disabled {
@@ -130,8 +229,37 @@
             cursor: not-allowed;
         }
 
+        .urgency-note {
+            background: linear-gradient(135deg, #fed7d7, #fbb6ce);
+            color: #c53030;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-left: 4px solid #e53e3e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgency-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: urgencyShine 2s infinite;
+        }
+
+        @keyframes urgencyShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
         .status {
-            margin-top: 24px;
+            margin-top: 20px;
             padding: 12px 20px;
             border-radius: 8px;
             font-weight: 500;
@@ -139,23 +267,23 @@
         }
 
         .status.success {
-            background: #ecfdf5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
         }
 
         .status.error {
-            background: #fef2f2;
-            color: #991b1b;
-            border: 1px solid #fecaca;
+            background: #fed7d7;
+            color: #c53030;
+            border: 1px solid #feb2b2;
         }
 
         .fallback-container {
             margin-top: 20px;
-            background: #fffbeb;
+            background: #fefcbf;
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid #fde68a;
+            border: 1px solid #f6e05e;
             display: none;
         }
 
@@ -163,7 +291,7 @@
             display: block;
             margin-top: 10px;
             word-break: break-all;
-            color: #065f46;
+            color: #744210;
             text-decoration: none;
             font-weight: 500;
         }
@@ -173,50 +301,170 @@
         }
 
         .footer {
-            margin-top: 32px;
-            color: #9ca3af;
+            text-align: center;
+            color: #a0aec0;
             font-size: 14px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #718096;
+            font-size: 12px;
+            background: #f7fafc;
+            padding: 6px 12px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .whatsapp-info {
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed #48bb78;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .whatsapp-info a {
+            color: #38a169;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .whatsapp-info a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 40px 30px;
+                padding: 30px 20px;
+                margin: 10px;
             }
             
             h1 {
-                font-size: 28px;
+                font-size: 24px;
+            }
+            
+            .job-title {
+                font-size: 16px;
             }
             
             .subtitle {
-                font-size: 16px;
+                font-size: 14px;
+            }
+
+            .company-info {
+                text-align: center;
+            }
+
+            .job-highlights {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .salary-amount {
+                font-size: 28px;
+            }
+
+            .trust-indicators {
+                gap: 8px;
+            }
+
+            .trust-item {
+                font-size: 11px;
+                padding: 4px 8px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">💼</div>
-        <h1>居家助理招聘</h1>
-        <p class="subtitle">有无经验都可以申请，提供全面培训</p>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">✨</div>
-                <div class="feature-text">月入可达RM5000-RM8000+</div>
+        <div class="header">
+            <div class="company-info">
+                <div class="company-badge">五星级酒店集团</div>
+                <div class="company-name">Marriott Bonvoy Hotels</div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-text">每日灵活3-4小时工作</div>
+            <h1>招聘居家行政助理</h1>
+            <div class="job-title">兼职/全职 • 居家办公 • 弹性时间</div>
+            <p class="subtitle">无需经验，提供完整培训，欢迎宝妈、学生、上班族</p>
+        </div>
+
+        <div class="job-highlights">
+            <div class="highlight-item">
+                <span class="highlight-icon">💰</span>
+                <div class="highlight-text">RM5000-8000+</div>
+                <div class="highlight-desc">月收入范围</div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-text">无需经验，文凭</div>
+            <div class="highlight-item">
+                <span class="highlight-icon">🏠</span>
+                <div class="highlight-text">居家办公</div>
+                <div class="highlight-desc">无需通勤</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">⏰</span>
+                <div class="highlight-text">3-4小时/天</div>
+                <div class="highlight-desc">弹性工作时间</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-icon">📚</span>
+                <div class="highlight-text">免费培训</div>
+                <div class="highlight-desc">零基础可学</div>
             </div>
         </div>
 
-        <button class="cta-button" id="whatsappButton">
-            开始咨询
-        </button>
+        <!-- 唯一的CTA按钮 -->
+        <div class="cta-section">
+            <button class="cta-button whatsapp-btn" data-source="highlights-section">
+                💬 立即咨询详情
+            </button>
+        </div>
+
+        <div class="salary-highlight">
+            <div class="salary-amount">RM 6,500</div>
+            <div class="salary-desc">平均月收入 • 多劳多得 • 上不封顶</div>
+        </div>
+
+        <div class="urgency-note">
+            🔥 限时招聘：本月仅招收15名，已有8人确认面试，剩余名额有限！
+        </div>
+
+        <div class="trust-indicators">
+            <div class="trust-item">
+                <span>🏆</span>
+                <span>五星酒店</span>
+            </div>
+            <div class="trust-item">
+                <span>🛡️</span>
+                <span>正规企业</span>
+            </div>
+            <div class="trust-item">
+                <span>⭐</span>
+                <span>真实岗位</span>
+            </div>
+            <div class="trust-item">
+                <span>🔒</span>
+                <span>信息保密</span>
+            </div>
+            <div class="trust-item">
+                <span>✅</span>
+                <span>免费咨询</span>
+            </div>
+        </div>
 
         <div class="status" id="status"></div>
         
@@ -225,8 +473,14 @@
             <a href="#" class="fallback-link" id="whatsappFallbackLink" target="_blank"></a>
         </div>
 
+        <div class="whatsapp-info">
+            <p>WhatsApp咨询: <a href="https://wa.me/60192923682?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%E5%B7%A5%E4%BD%9C" id="direct-whatsapp-link" target="_blank">点击直接打开WhatsApp</a></p>
+            <p>或添加号码: <strong>+60 19-292 3682</strong></p>
+        </div>
+
         <div class="footer">
-            <p>点击按钮将通过WhatsApp与我们的招聘顾问取得联系</p>
+            <p>点击按钮将通过WhatsApp与我们的专业招聘顾问联系</p>
+            <p style="margin-top: 8px; font-size: 12px;">我们承诺：100%免费咨询，不收取任何费用</p>
         </div>
     </div>
 
@@ -251,40 +505,13 @@
     </noscript>
 
     <script>
-        // 配置
+        // 配置 - 使用完整的WhatsApp链接
         const WHATSAPP_LINK = 'https://wa.me/60192923682?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%E5%B7%A5%E4%BD%9C';
+        const PHONE_NUMBER = '+60 19-292 3682';
         
-        // 状态管理
-        let whatsappClicked = false;
-        let pixelReady = false;
-        
-        // 检查Pixel是否准备就绪
-        function checkPixelReady() {
-            return typeof fbq !== 'undefined' && typeof fbq.loaded !== 'undefined' && fbq.loaded;
-        }
-        
-        // 等待Pixel准备就绪
-        function waitForPixel(callback, maxWait = 5000) {
-            const startTime = Date.now();
-            
-            function check() {
-                if (checkPixelReady()) {
-                    pixelReady = true;
-                    callback();
-                } else if (Date.now() - startTime < maxWait) {
-                    setTimeout(check, 100);
-                } else {
-                    console.warn('⚠️ Pixel加载超时，使用备用方案');
-                    callback();
-                }
-            }
-            
-            check();
-        }
-        
-        // 追踪WhatsApp点击 - 核心追踪函数
-        function trackWhatsAppClick() {
-            console.log('🚀 开始追踪WhatsApp点击...');
+        // 唯一追踪函数 - 只追踪咨询点击
+        function trackConsultationClick(buttonSource) {
+            console.log('🎯 追踪咨询点击 - 来源:', buttonSource);
             
             if (typeof fbq === 'undefined') {
                 console.error('❌ Facebook Pixel 未加载');
@@ -292,70 +519,35 @@
             }
             
             try {
-                // 发送Lead事件
                 fbq('track', 'Lead', {
                     content_name: 'WhatsApp联系',
                     content_category: '招聘咨询',
-                    value: 20.00,
+                    value: 5.00,
                     currency: 'USD'
                 });
                 
-                console.log('✅ WhatsApp点击Lead事件已发送');
-                
-                // 备用发送机制
-                setTimeout(() => {
-                    try {
-                        fbq('track', 'Lead', {
-                            content_name: 'WhatsApp联系',
-                            content_category: '招聘咨询',
-                            value: 20.00,
-                            currency: 'USD'
-                        });
-                        console.log('✅ 备用Lead事件已发送');
-                    } catch (e) {
-                        console.log('备用发送失败:', e);
-                    }
-                }, 500);
+                console.log('✅ Lead事件已发送');
                 
             } catch (error) {
                 console.error('❌ 追踪事件失败:', error);
-                
-                // 延迟重试
-                setTimeout(() => {
-                    try {
-                        fbq('track', 'Lead', {
-                            content_name: 'WhatsApp联系',
-                            content_category: '招聘咨询',
-                            value: 20.00,
-                            currency: 'USD'
-                        });
-                        console.log('✅ 重试Lead事件已发送');
-                    } catch (retryError) {
-                        console.error('❌ 重试也失败:', retryError);
-                    }
-                }, 1000);
             }
         }
         
         // 显示状态信息
-        function showStatus(message, type, autoHide = true) {
+        function showStatus(message, type) {
             const statusDiv = document.getElementById('status');
             statusDiv.textContent = message;
             statusDiv.className = `status ${type}`;
             statusDiv.style.display = 'block';
             
-            if (autoHide) {
-                setTimeout(() => {
-                    statusDiv.style.display = 'none';
-                }, 3000);
-            }
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 3000);
         }
         
         // 显示备用方案
         function showFallbackOption() {
-            console.log('显示WhatsApp备用方案');
-            
-            showStatus('跳转失败，请手动打开WhatsApp', 'error', false);
+            showStatus('跳转失败，请手动点击下方链接', 'error');
             
             const fallbackContainer = document.getElementById('fallbackContainer');
             const fallbackLink = document.getElementById('whatsappFallbackLink');
@@ -365,90 +557,82 @@
             fallbackContainer.style.display = 'block';
         }
         
-        // WhatsApp联系函数
-        function contactWhatsApp() {
-            console.log('👆 用户点击WhatsApp按钮');
+        // WhatsApp联系函数 - 已优化
+        function contactWhatsApp(event) {
+            const button = event.target;
+            const buttonSource = button.getAttribute('data-source') || 'unknown';
             
-            // 防止重复点击
-            if (whatsappClicked) {
-                console.log('⚠️ 重复点击，忽略');
+            console.log('👆 用户点击咨询按钮 - 来源:', buttonSource);
+            
+            if (button.disabled) {
+                console.log('⚠️ 按钮已禁用，忽略重复点击');
                 return;
             }
-            whatsappClicked = true;
             
-            // 禁用按钮防止重复点击
-            const button = document.getElementById('whatsappButton');
             button.disabled = true;
-            button.textContent = '正在跳转...';
+            const originalText = button.innerHTML;
+            button.innerHTML = '🚀 正在连接...';
             
-            // 追踪事件
-            trackWhatsAppClick();
+            // 追踪咨询点击事件
+            trackConsultationClick(buttonSource);
             
             // 显示加载状态
-            showStatus('正在跳转到WhatsApp...', 'success');
+            showStatus('正在连接招聘顾问...', 'success');
             
-            // 延迟跳转确保事件发送
             setTimeout(() => {
                 try {
-                    // 方法1: 直接在当前窗口打开（移动端友好）
-                    if (/Mobi|Android/i.test(navigator.userAgent)) {
-                        window.location.href = WHATSAPP_LINK;
-                        return;
+                    // 改进的设备检测
+                    const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    
+                    // 移动设备使用WhatsApp协议链接
+                    if (isMobile) {
+                        // 创建隐藏链接并点击
+                        const hiddenLink = document.createElement('a');
+                        hiddenLink.href = `whatsapp://send?phone=${PHONE_NUMBER}`;
+                        hiddenLink.style.display = 'none';
+                        document.body.appendChild(hiddenLink);
+                        hiddenLink.click();
+                        document.body.removeChild(hiddenLink);
+                    } else {
+                        // 桌面设备使用网页版链接
+                        window.open(WHATSAPP_LINK, '_blank');
                     }
                     
-                    // 方法2: 新窗口打开（桌面端友好）
-                    const newWindow = window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer');
-                    if (!newWindow || newWindow.closed) {
-                        throw new Error('弹窗被阻止');
-                    }
-                    
-                } catch (error) {
-                    console.log('跳转失败，显示备用方案:', error);
-                    showFallbackOption();
-                } finally {
-                    // 重新启用按钮
+                    // 设置3秒后恢复按钮状态
                     setTimeout(() => {
                         button.disabled = false;
-                        button.textContent = '开始咨询';
-                        whatsappClicked = false;
+                        button.innerHTML = originalText;
                     }, 3000);
+                    
+                } catch (error) {
+                    console.log('跳转失败:', error);
+                    showFallbackOption();
+                    
+                    // 恢复按钮状态
+                    button.disabled = false;
+                    button.innerHTML = originalText;
                 }
-            }, 300); // 300ms延迟确保事件发送
+            }, 300);
         }
         
         // 页面加载完成
         window.addEventListener('load', function() {
             console.log('📱 招聘页面加载完成');
             
-            // 等待Pixel准备就绪
-            waitForPixel(() => {
-                console.log('✅ Facebook Pixel 准备就绪');
-                
-                // 添加事件监听器
-                document.getElementById('whatsappButton').addEventListener('click', contactWhatsApp);
-                
+            document.querySelectorAll('.whatsapp-btn').forEach(button => {
+                button.addEventListener('click', contactWhatsApp);
             });
-        });
-        
-        // 监听页面离开 - 检测WhatsApp使用
-        window.addEventListener('beforeunload', function() {
-            if (whatsappClicked) {
-                console.log('📊 用户在点击WhatsApp后离开页面');
-            }
-        });
-        
-        // 监听窗口失焦 - 可能在使用WhatsApp
-        window.addEventListener('blur', function() {
-            if (whatsappClicked) {
-                console.log('📱 窗口失焦 - 用户可能在使用WhatsApp');
-            }
-        });
-        
-        // 页面可见性变化监听
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden && whatsappClicked) {
-                console.log('📱 页面隐藏 - 用户可能在使用WhatsApp');
-            }
+            
+            // 设置直接WhatsApp链接
+            document.getElementById('direct-whatsapp-link').href = WHATSAPP_LINK;
+            
+            setTimeout(() => {
+                if (typeof fbq !== 'undefined') {
+                    console.log('✅ Facebook Pixel 已加载');
+                } else {
+                    console.error('❌ Facebook Pixel 加载失败');
+                }
+            }, 1000);
         });
     </script>
 </body>
