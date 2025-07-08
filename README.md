@@ -18,6 +18,9 @@
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
@@ -31,6 +34,7 @@
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
         }
 
         .container::before {
@@ -45,6 +49,7 @@
 
         .header {
             margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
         }
 
         .company-info {
@@ -61,6 +66,7 @@
             letter-spacing: 0.5px;
             display: inline-block;
             margin-bottom: 12px;
+            animation: popIn 0.5s ease-out;
         }
 
         .company-name {
@@ -104,6 +110,7 @@
             grid-template-rows: repeat(2, 1fr);
             gap: 15px;
             margin-bottom: 35px;
+            animation: fadeIn 0.8s 0.2s both;
         }
 
         .highlight-item {
@@ -147,6 +154,13 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
         }
 
         .salary-highlight::before {
@@ -179,6 +193,7 @@
 
         .cta-section {
             margin-bottom: 25px;
+            animation: fadeIn 0.8s 0.4s both;
         }
 
         .cta-button {
@@ -240,6 +255,7 @@
             border-left: 4px solid #e53e3e;
             position: relative;
             overflow: hidden;
+            animation: slideUp 0.5s 0.6s both;
         }
 
         .urgency-note::before {
@@ -285,6 +301,7 @@
             border-radius: 8px;
             border: 1px solid #f6e05e;
             display: none;
+            animation: fadeIn 0.5s;
         }
 
         .fallback-link {
@@ -307,6 +324,7 @@
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid #e2e8f0;
+            animation: fadeIn 0.8s 0.8s both;
         }
 
         .trust-indicators {
@@ -315,6 +333,7 @@
             gap: 15px;
             margin: 20px 0;
             flex-wrap: wrap;
+            animation: fadeIn 0.8s 0.7s both;
         }
 
         .trust-item {
@@ -327,6 +346,12 @@
             padding: 6px 12px;
             border-radius: 15px;
             border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .whatsapp-info {
@@ -337,6 +362,7 @@
             border: 1px dashed #48bb78;
             font-size: 14px;
             text-align: center;
+            animation: fadeIn 0.8s 0.9s both;
         }
 
         .whatsapp-info a {
@@ -349,21 +375,25 @@
             text-decoration: underline;
         }
         
-        .device-warning {
-            display: none;
-            background: #ffebee;
-            color: #c62828;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #f44336;
-            text-align: left;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .warning-icon {
-            font-size: 20px;
-            margin-right: 8px;
-            vertical-align: middle;
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            70% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 480px) {
@@ -405,6 +435,11 @@
             .trust-item {
                 font-size: 11px;
                 padding: 4px 8px;
+            }
+            
+            .cta-button {
+                padding: 16px 30px;
+                font-size: 16px;
             }
         }
     </style>
@@ -449,11 +484,6 @@
             <button class="cta-button whatsapp-btn" data-source="highlights-section">
                 💬 立即咨询详情
             </button>
-        </div>
-        
-        <div class="device-warning" id="deviceWarning">
-            <span class="warning-icon">⚠️</span>
-            检测到您的设备可能存在兼容性问题，建议使用手机或平板设备访问以获得最佳体验。
         </div>
 
         <div class="salary-highlight">
@@ -580,28 +610,6 @@
             fallbackContainer.style.display = 'block';
         }
         
-        // 检测设备类型和浏览器兼容性
-        function detectDeviceIssues() {
-            const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-            const isDesktop = !isMobile;
-            
-            const warningElement = document.getElementById('deviceWarning');
-            
-            // 在桌面设备或Safari浏览器上显示警告
-            if (isDesktop || (isIOS && isSafari)) {
-                warningElement.style.display = 'block';
-            }
-            
-            return {
-                isMobile,
-                isIOS,
-                isSafari,
-                isDesktop
-            };
-        }
-        
         // WhatsApp联系函数 - 已优化
         function contactWhatsApp(event) {
             const button = event.target;
@@ -624,14 +632,14 @@
             // 显示加载状态
             showStatus('正在连接招聘顾问...', 'success');
             
-            // 检测设备信息
-            const deviceInfo = detectDeviceIssues();
+            // 改进的设备检测
+            const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
             
             setTimeout(() => {
                 try {
-                    // 改进的跳转逻辑
-                    if (deviceInfo.isMobile) {
-                        // 移动设备：尝试使用协议链接
+                    // 移动设备使用WhatsApp协议链接
+                    if (isMobile) {
                         console.log('📱 移动设备 - 尝试使用协议链接');
                         
                         // 创建隐藏iframe来尝试协议链接
@@ -651,7 +659,7 @@
                         // 移除iframe
                         setTimeout(() => document.body.removeChild(iframe), 2000);
                     } else {
-                        // 桌面设备：直接打开网页版
+                        // 桌面设备使用网页版链接
                         console.log('💻 桌面设备 - 打开网页版');
                         window.open(WHATSAPP_LINK, '_blank');
                     }
@@ -676,9 +684,6 @@
         // 页面加载完成
         window.addEventListener('load', function() {
             console.log('📱 招聘页面加载完成');
-            
-            // 检测设备问题
-            detectDeviceIssues();
             
             document.querySelectorAll('.whatsapp-btn').forEach(button => {
                 button.addEventListener('click', contactWhatsApp);
